@@ -18,7 +18,7 @@
     <name>precticeDemo</name>
     <description>平时的代码练习，随便瞎写</description>
     <modules>
-        <module>prectice_one</module>
+        <module>algorithm_prectice</module>
     </modules>
 
     <properties>
