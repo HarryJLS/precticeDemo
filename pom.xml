@@ -19,6 +19,7 @@
     <description>平时的代码练习，随便瞎写</description>
     <modules>
         <module>algorithm_prectice</module>
+        <module>asyncCallBackDemo</module>
     </modules>
 
     <properties>
