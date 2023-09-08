@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jlstest.springbootdemo.dao.PermissionDao">
+
+    <resultMap id="permissionResultMap" type="com.jlstest.springbootdemo.model.Permission">
+        <result column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="enname" property="enname"/>
+        <result column="url" property="url"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <select id="selectByUserId" resultMap="permissionResultMap">
+        select tp.id, tp.parent_id, tp.name, tp.enname, tp.url, tp.description
+        from tb_permission tp
+                 left join tb_role_permission tr on tp.id = tr.permission_id
+        where tr.role_id = (select role_id from tb_user_role where user_id = #{userId})
+    </select>
+</mapper>
