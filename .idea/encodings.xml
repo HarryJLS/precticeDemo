@@ -4,9 +4,14 @@
     <file url="file://$PROJECT_DIR$/../../../software/apache-maven-3.8.2-bin/apache-maven-3.8.2/maven-repository/org/springframework/boot/spring-boot-starter-parent/2.6.1/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/algorithm_prectice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/asyncCallBackDemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/algorithm_prectice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/disruptorprectice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springSecurity/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tuling_spring_test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tuling_spring_test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tulingcodeStudy_ONE/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../envirment/apache-maven-3.8.6/repository/org/springframework/boot/spring-boot-starter-parent/2.7.13/src/main/resources" charset="UTF-8" />
   </component>
 </project>

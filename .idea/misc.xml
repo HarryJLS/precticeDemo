@@ -6,6 +6,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/springSecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/algorithm_prectice/pom.xml" />
+        <option value="$PROJECT_DIR$/tulingcodeStudy_ONE/pom.xml" />
+        <option value="$PROJECT_DIR$/tuling_spring_test/pom.xml" />
       </list>
     </option>
   </component>
