@@ -31,6 +31,23 @@
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>jls-common</artifactId>
+            <version>2023062901-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
