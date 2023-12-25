@@ -1,7 +1,7 @@
 package com.prectice.leetcode_100;
 
 import com.prectice.leetcode.TreeNode;
-import sun.reflect.generics.tree.Tree;
+
 
 /**
  * @author JLS

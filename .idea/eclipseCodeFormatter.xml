@@ -4,7 +4,7 @@
     <option name="projectSpecificProfile">
       <ProjectSpecificProfile>
         <option name="formatter" value="ECLIPSE" />
-        <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../envirment/Preferences-Java-CodeStyle-Formatter.xml" />
+        <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../../software/Preferences-Java-CodeStyle-Formatter.xml" />
         <option name="selectedJavaProfile" value="differsoft profile" />
       </ProjectSpecificProfile>
     </option>
