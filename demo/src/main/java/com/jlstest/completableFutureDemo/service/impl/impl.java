@@ -1,9 +1,9 @@
-package com.jlstest.service.impl;
+package com.jlstest.completableFutureDemo.service.impl;
 
 
 
 import com.google.common.collect.Lists;
-import com.jlstest.service.AsyncService;
+import com.jlstest.completableFutureDemo.service.AsyncService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -21,6 +21,7 @@
         <module>algorithm_prectice</module>
         <module>asyncCallBackDemo</module>
         <module>demo</module>
+        <module>tulingcodestudy_3</module>
     </modules>
 
     <properties>

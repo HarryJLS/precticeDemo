@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 /**
  * @author JLS
  * @description:
@@ -17,10 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Slf4j
 @RequestMapping(value = "/wms", produces = { "application/json;charset=UTF-8" })
+@Validated
 public class demoController {
 
     @PostMapping("/edge/upf/config")
-    public JlsTestResponse<String> edgeUpfConfiguration(@RequestBody @Validated EdgeUpfConfigParam edgeUpfConfigParam, BindingResult bindingResult) {
+    public JlsTestResponse<String> edgeUpfConfiguration(@RequestBody @Valid EdgeUpfConfigParam edgeUpfConfigParam, BindingResult bindingResult) {
 
         log.info("边缘UPF配置: 入参 = {}", JSON.toJSONString(edgeUpfConfigParam));
         String firstErrorMessage;

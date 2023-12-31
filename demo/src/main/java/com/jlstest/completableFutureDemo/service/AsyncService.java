@@ -1,4 +1,4 @@
-package com.jlstest.service;
+package com.jlstest.completableFutureDemo.service;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

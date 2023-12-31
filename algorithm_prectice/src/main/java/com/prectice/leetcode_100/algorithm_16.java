@@ -12,7 +12,8 @@ public class algorithm_16 {
 
 
     //给定一个字符串 s ，请你找出其中不含有重复字符的 最长连续子字符串 的长度。
-    public int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring(String s) throws InterruptedException {
+        Thread.sleep(5000);
         int result = 0;
         int temp = 0;
         int[] charArr = new int[128];
@@ -45,7 +46,7 @@ public class algorithm_16 {
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         algorithm_16 algorithm16 = new algorithm_16();
         int i = algorithm16.lengthOfLongestSubstring("bbbbb");
         System.out.println(i);

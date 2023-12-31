@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ShardingDemoV5</artifactId>
+        <groupId>com.roy</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Sharding</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!-- shardingJDBC核心依赖 -->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+            <version>5.2.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>snakeyaml</artifactId>
+                    <groupId>org.yaml</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 坑爹的版本冲突 -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.33</version>
+        </dependency>
+        <!-- 与COSID集成 -->
+<!--        <dependency>-->
+<!--            <groupId>me.ahoo.cosid</groupId>-->
+<!--            <artifactId>cosid-spring-boot-starter</artifactId>-->
+<!--            <version>1.18.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>me.ahoo.cosid</groupId>-->
+<!--            <artifactId>cosid-zookeeper</artifactId>-->
+<!--            <version>1.18.6</version>-->
+<!--        </dependency>-->
+        <!--XA 分布式事务 -->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-transaction-xa-core</artifactId>
+            <version>5.2.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>transactions-jdbc</artifactId>
+                    <groupId>com.atomikos</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>transactions-jta</artifactId>
+                    <groupId>com.atomikos</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 版本滞后了 -->
+        <dependency>
+            <artifactId>transactions-jdbc</artifactId>
+            <groupId>com.atomikos</groupId>
+            <version>5.0.8</version>
+        </dependency>
+        <dependency>
+            <artifactId>transactions-jta</artifactId>
+            <groupId>com.atomikos</groupId>
+            <version>5.0.8</version>
+        </dependency>
+
+        <!-- 使用XA事务时，可以引入其他几种事务管理器 -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>shardingsphere-transaction-xa-bitronix</artifactId>-->
+<!--            <version>5.2.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>shardingsphere-transaction-xa-narayana</artifactId>-->
+<!--            <version>5.2.1</version>-->
+<!--        </dependency>-->
+        <!--         Base 柔性事务-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.shardingsphere</groupId>-->
+        <!--            <artifactId>sharding-transaction-base-seata-at</artifactId>-->
+        <!--            <version>4.1.1</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.seata</groupId>-->
+        <!--            <artifactId>seata-all</artifactId>-->
+        <!--            <version>1.4.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.nacos</groupId>-->
+        <!--            <artifactId>nacos-client</artifactId>-->
+        <!--            <version>1.4.1</version>-->
+        <!--        </dependency>-->
+        <!-- SpringBoot依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>snakeyaml</artifactId>
+                    <groupId>org.yaml</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!-- 数据源连接池 -->
+        <!--注意不要用这个依赖，他会创建数据源，跟上面ShardingJDBC的SpringBoot集成依赖有冲突 -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid-spring-boot-starter</artifactId>-->
+        <!--            <version>1.1.20</version>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.20</version>
+        </dependency>
+        <!-- mysql连接驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- mybatisplus依赖 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.3.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 将SPI扩展功能单独打成jar包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>ShardingSPIDemo</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>spiextention</classifier>
+                            <includes>
+                                <include>com/roy/shardingDemo/algorithm/*</include>
+                                <include>META-INF/services/*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.1.RELEASE</version>
+                <configuration>
+                    <mainClass>com.roy.shardingDemo.ShardingJDBCApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

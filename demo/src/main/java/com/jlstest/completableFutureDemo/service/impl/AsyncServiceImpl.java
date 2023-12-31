@@ -1,6 +1,6 @@
-package com.jlstest.service.impl;
+package com.jlstest.completableFutureDemo.service.impl;
 
-import com.jlstest.service.AsyncService;
+import com.jlstest.completableFutureDemo.service.AsyncService;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 

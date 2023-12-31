@@ -1,6 +1,6 @@
 package com.jlstest.service.impl;
 
-import com.jlstest.service.AsyncService;
+import com.jlstest.completableFutureDemo.service.AsyncService;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;

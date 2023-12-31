@@ -1,0 +1,2 @@
+com.roy.shardingDemo.algorithm.MyKeyGeneratorAlgorithm
+com.roy.shardingDemo.algorithm.MySnowFlakeAlgorithm
