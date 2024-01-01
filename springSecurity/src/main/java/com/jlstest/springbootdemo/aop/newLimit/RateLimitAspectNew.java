@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.redisson.api.RLock;
 import org.redisson.api.RRateLimiter;
 import org.redisson.api.RateIntervalUnit;
 import org.redisson.api.RateType;
@@ -43,6 +44,10 @@ public class RateLimitAspectNew {
         String resourceName = rateLimitNew.resourceName();
         int permits = rateLimitNew.permits();
         int restoreRate = rateLimitNew.restoreRate();
+
+        RLock lock = redissonClient.getLock("lock");
+        lock.lock();
+        lock.unlock();
 
         // 创建或获取令牌桶
         RRateLimiter rateLimiter = rateLimiterMap.computeIfAbsent(resourceName, key -> {
