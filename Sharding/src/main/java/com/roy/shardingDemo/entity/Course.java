@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  * @description: 课程表，主要测试分库分表功能
  **/
 public class Course {
+    //    @TableId(type = IdType.AUTO)
     private Long cid;
 //  如果使用id作为主键，注意MyBatis会默认对id字段生成主键。
 //    private Long id;
