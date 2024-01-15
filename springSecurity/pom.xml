@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jlstest</groupId>
-    <artifactId>springbootDemo</artifactId>
+    <artifactId>springSecurity</artifactId>
     <version>1.0.0</version>
     <name>springbootDemo</name>
     <description>springbootDemo</description>
