@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.dao.CronManagementDao">
+
+    <resultMap id="map" type="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="dead_time" property="deadTime"/>
+        <result column="start_time" property="startTime"/>
+        <result column="cron_exp" property="cronExp"/>
+    </resultMap>
+
+    <select id="selectCronManagementAll" resultMap="map">
+        select * from cron_management
+    </select>
+
+    <select id="selectCronManagement" resultMap="map">
+        select * from cron_management where id = #{id}
+    </select>
+
+    <insert id="insertCronManagement" parameterType="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity">
+        insert into cron_management (title, dead_time, start_time, cron_exp) values (#{title}, #{deadTime}, #{startTime}, #{cronExp})
+    </insert>
+
+    <update id="updateCronManagement" parameterType="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity">
+        update cron_management
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="deadTime != null">
+                dead_time = #{deadTime},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime},
+            </if>
+            <if test="cronExp != null and cronExp != ''">
+                cron_exp = #{cronExp},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCronManagement" parameterType="Long">
+        delete from cron_management where id = #{id}
+    </delete>
+</mapper>
+
+<!-- 数据库建表语句
+        create table if not exists cron_management
+        (
+        id          BIGINT PRIMARY KEY COMMENT '主键id',
+        title       VARCHAR(255) COMMENT '标题',
+        dead_time    DATE COMMENT '截止时间',
+        start_time   DATE COMMENT '开始时间',
+        cron_exp     VARCHAR(255) COMMENT 'cron表达式',
+        create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+        update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+        ) ENGINE = InnoDB
+        DEFAULT CHARSET = utf8mb4
+        comment 'cron任务信息调度记录表';
+-->

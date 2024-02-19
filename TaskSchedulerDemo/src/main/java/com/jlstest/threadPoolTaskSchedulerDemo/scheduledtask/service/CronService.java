@@ -1,6 +1,6 @@
 package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.service;
 
-import com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.Cron;
+import com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity;
 
 /**
  * @className: CronService
@@ -16,7 +16,7 @@ public interface CronService {
      * @param cron
      *            定时任务信息
      */
-    void startCron(Cron cron);
+    void startCron(CronEntity cron);
 
     /**
      * 结束定时任务
@@ -24,7 +24,10 @@ public interface CronService {
      * @param cron
      *            定时任务信息
      */
-    void stopCron(Cron cron);
+    void stopCron(CronEntity cron);
 
-    void changeCron(Cron cron);
+    /**
+     * 修改定时任务
+     */
+    void changeCron(CronEntity cron);
 }

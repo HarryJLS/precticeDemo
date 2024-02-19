@@ -82,19 +82,22 @@
     </insert>
 
 <!--    建表语句:
-    create table if not exists sys_job (
-    job_id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '任务ID',
-    job_name VARCHAR(100) NOT NULL COMMENT '任务名称',
-    job_group VARCHAR(100) NOT NULL COMMENT '任务组名',
-    method_name VARCHAR(100) NOT NULL COMMENT '任务方法',
-    method_params VARCHAR(255) COMMENT '方法参数',
+create table if not exists sys_job
+(
+    job_id          BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '任务ID',
+    job_name        VARCHAR(100) NOT NULL COMMENT '任务名称',
+    job_group       VARCHAR(100) NOT NULL COMMENT '任务组名',
+    method_name     VARCHAR(100) NOT NULL COMMENT '任务方法',
+    method_params   VARCHAR(255) COMMENT '方法参数',
     cron_expression VARCHAR(100) NOT NULL COMMENT 'CRON表达式',
-    status CHAR(1) NOT NULL COMMENT '任务状态（0正常 1暂停）',
-    remark VARCHAR(255) COMMENT '备注',
-    create_by VARCHAR(50) COMMENT '创建者',
-    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    update_by VARCHAR(50) COMMENT '更新者',
-    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
-    );
+    status          CHAR(1)      NOT NULL COMMENT '任务状态（0正常 1暂停）',
+    remark          VARCHAR(255) COMMENT '备注',
+    create_by       VARCHAR(50) COMMENT '创建者',
+    create_time     TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_by       VARCHAR(50) COMMENT '更新者',
+    update_time     TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+    comment 'job任务调度信息记录表';
     -->
 </mapper>

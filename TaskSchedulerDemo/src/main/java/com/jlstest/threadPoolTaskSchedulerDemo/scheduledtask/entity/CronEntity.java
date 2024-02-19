@@ -1,5 +1,6 @@
-package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask;
+package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,13 +14,14 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Cron extends BaseEntity {
+public class CronEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     /**
-     * 执行时刻
+     * 主键id
      */
-    private LocalTime executeTime;
+    private Long id;
 
     /**
      * 标题
@@ -35,4 +37,9 @@ public class Cron extends BaseEntity {
      * 开始时间
      */
     private LocalDate startTime;
+
+    /**
+     * cron表达式
+     */
+    private String cronExp;
 }
