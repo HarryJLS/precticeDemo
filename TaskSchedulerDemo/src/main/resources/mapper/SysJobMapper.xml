@@ -76,7 +76,7 @@
         delete from sys_job where job_id = #{jobId}
     </delete>
 
-    <insert id="insertJob">
+    <insert id="insertJob" useGeneratedKeys="true" keyProperty="jobId">
         insert into sys_job (job_name, job_group, method_name, method_params, cron_expression, status, remark, create_by, create_time, update_by, update_time)
         values (#{jobName}, #{jobGroup}, #{methodName}, #{methodParams}, #{cronExpression}, #{status}, #{remark}, #{createBy}, now(), #{updateBy}, now())
     </insert>

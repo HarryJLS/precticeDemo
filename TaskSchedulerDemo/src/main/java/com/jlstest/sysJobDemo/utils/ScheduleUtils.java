@@ -34,7 +34,7 @@ public class ScheduleUtils {
                 .withSchedule(CronScheduleBuilder.cronSchedule(job.getCronExpression())).build();
 
         // 构建定时任务的JobDetail 如果有多种任务选择，则根据不同任务创建不同的JobDetail
-        JobDetail jobDetail = JobBuilder.newJob(Task1Job.class).withIdentity(job.getJobName(), job.getJobGroup()).build();
+        JobDetail jobDetail = JobBuilder.newJob(Task1Job.class).withIdentity(job.getJobId().toString(), job.getJobGroup()).build();
 
         // 将任务信息设置到JobDataMap中，传递给任务的执行方法
         JobDataMap jobDataMap = jobDetail.getJobDataMap();

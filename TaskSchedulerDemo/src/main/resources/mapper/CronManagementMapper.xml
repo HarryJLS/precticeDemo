@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.dao.CronManagementDao">
+<mapper namespace="com.jlstest.threadPoolTaskSchedulerDemo.dao.CronManagementDao">
 
-    <resultMap id="map" type="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity">
+    <resultMap id="map" type="com.jlstest.threadPoolTaskSchedulerDemo.entity.CronEntity">
         <id column="id" property="id"/>
         <result column="title" property="title"/>
         <result column="dead_time" property="deadTime"/>
@@ -18,11 +18,11 @@
         select * from cron_management where id = #{id}
     </select>
 
-    <insert id="insertCronManagement" parameterType="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity">
+    <insert id="insertCronManagement" parameterType="com.jlstest.threadPoolTaskSchedulerDemo.entity.CronEntity" useGeneratedKeys="true" keyProperty="id">
         insert into cron_management (title, dead_time, start_time, cron_exp) values (#{title}, #{deadTime}, #{startTime}, #{cronExp})
     </insert>
 
-    <update id="updateCronManagement" parameterType="com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity">
+    <update id="updateCronManagement" parameterType="com.jlstest.threadPoolTaskSchedulerDemo.entity.CronEntity">
         update cron_management
         <set>
             <if test="title != null and title != ''">
@@ -47,16 +47,16 @@
 </mapper>
 
 <!-- 数据库建表语句
-        create table if not exists cron_management
-        (
-        id          BIGINT PRIMARY KEY COMMENT '主键id',
-        title       VARCHAR(255) COMMENT '标题',
-        dead_time    DATE COMMENT '截止时间',
-        start_time   DATE COMMENT '开始时间',
-        cron_exp     VARCHAR(255) COMMENT 'cron表达式',
-        create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-        update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
-        ) ENGINE = InnoDB
-        DEFAULT CHARSET = utf8mb4
-        comment 'cron任务信息调度记录表';
+create table if not exists cron_management
+(
+    id          BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键id',
+    title       VARCHAR(255) COMMENT '标题',
+    dead_time    datetime COMMENT '截止时间',
+    start_time   datetime COMMENT '开始时间',
+    cron_exp     VARCHAR(255) COMMENT 'cron表达式',
+    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+    comment 'cron任务信息调度记录表';
 -->

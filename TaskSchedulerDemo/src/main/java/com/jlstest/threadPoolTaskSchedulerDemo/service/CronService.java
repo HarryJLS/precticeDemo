@@ -1,6 +1,6 @@
-package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.service;
+package com.jlstest.threadPoolTaskSchedulerDemo.service;
 
-import com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity;
+import com.jlstest.threadPoolTaskSchedulerDemo.entity.CronEntity;
 
 /**
  * @className: CronService

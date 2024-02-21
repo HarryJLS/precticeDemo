@@ -1,4 +1,4 @@
-package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.utils;
+package com.jlstest.threadPoolTaskSchedulerDemo.utils;
 
 import org.quartz.CronExpression;
 

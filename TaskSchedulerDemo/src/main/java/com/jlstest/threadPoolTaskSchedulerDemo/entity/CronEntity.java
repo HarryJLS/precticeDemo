@@ -1,9 +1,9 @@
-package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity;
+package com.jlstest.threadPoolTaskSchedulerDemo.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -31,12 +31,14 @@ public class CronEntity implements Serializable {
     /**
      * 截止时间
      */
-    private LocalDate deadTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime deadTime;
 
     /**
      * 开始时间
      */
-    private LocalDate startTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime startTime;
 
     /**
      * cron表达式

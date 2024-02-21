@@ -10,7 +10,7 @@ import java.util.List;
  * @description:
  * @since 2024-02-18 14:43
  */
-public interface ISysJobService {
+public interface SysJobService {
 
     /**
      * 获取quartz调度器的计划任务列表

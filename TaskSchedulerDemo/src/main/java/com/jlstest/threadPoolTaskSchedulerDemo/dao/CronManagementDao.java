@@ -1,6 +1,6 @@
-package com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.dao;
+package com.jlstest.threadPoolTaskSchedulerDemo.dao;
 
-import com.jlstest.threadPoolTaskSchedulerDemo.scheduledtask.entity.CronEntity;
+import com.jlstest.threadPoolTaskSchedulerDemo.entity.CronEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public interface CronManagementDao {
     /**
      * 新增定时任务
      */
-    Long insertCronManagement(CronEntity cronEntity);
+    void insertCronManagement(CronEntity cronEntity);
 
     /**
      * 修改定时任务
