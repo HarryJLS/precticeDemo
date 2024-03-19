@@ -23,6 +23,7 @@
         <module>demo</module>
         <module>tulingcodestudy_3</module>
         <module>darkhouseDemo</module>
+        <module>TaskSchedulerDemo</module>
     </modules>
 
     <properties>

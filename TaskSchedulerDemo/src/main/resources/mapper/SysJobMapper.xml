@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jlstest.sysJobDemo.dao.SysJobMapper">
+
+    <resultMap id="sysJobResultMap" type="com.jlstest.sysJobDemo.entity.SysJob">
+        <result column="job_id" property="jobId" />
+        <result column="job_name" property="jobName" />
+        <result column="job_group" property="jobGroup" />
+        <result column="method_name" property="methodName" />
+        <result column="method_params" property="methodParams" />
+        <result column="cron_expression" property="cronExpression" />
+        <result column="status" property="status" />
+        <result column="remark" property="remark" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <select id="selectJobAll" resultMap="sysJobResultMap">
+        select * from sys_job
+    </select>
+
+    <select id="selectJobList" resultMap="sysJobResultMap">
+        select * from sys_job
+        <where>
+            <if test="jobName != null and jobName != ''">
+                and job_name like concat('%',#{jobName},'%')
+            </if>
+            <if test="jobGroup != null and jobGroup != ''">
+                and job_group = #{jobGroup}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectJobById" resultMap="sysJobResultMap">
+        select * from sys_job where job_id = #{jobId}
+    </select>
+
+    <update id="updateJob">
+        update sys_job
+        <set>
+            <if test="jobName != null and jobName != ''">
+                job_name = #{jobName},
+            </if>
+            <if test="jobGroup != null and jobGroup != ''">
+                job_group = #{jobGroup},
+            </if>
+            <if test="methodName != null and methodName != ''">
+                method_name = #{methodName},
+            </if>
+            <if test="methodParams != null and methodParams != ''">
+                method_params = #{methodParams},
+            </if>
+            <if test="cronExpression != null and cronExpression != ''">
+                cron_expression = #{cronExpression},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            update_time = now()
+        </set>
+        where job_id = #{jobId}
+    </update>
+
+    <delete id="deleteJobById">
+        delete from sys_job where job_id = #{jobId}
+    </delete>
+
+    <insert id="insertJob" useGeneratedKeys="true" keyProperty="jobId">
+        insert into sys_job (job_name, job_group, method_name, method_params, cron_expression, status, remark, create_by, create_time, update_by, update_time)
+        values (#{jobName}, #{jobGroup}, #{methodName}, #{methodParams}, #{cronExpression}, #{status}, #{remark}, #{createBy}, now(), #{updateBy}, now())
+    </insert>
+
+<!--    建表语句:
+create table if not exists sys_job
+(
+    job_id          BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '任务ID',
+    job_name        VARCHAR(100) NOT NULL COMMENT '任务名称',
+    job_group       VARCHAR(100) NOT NULL COMMENT '任务组名',
+    method_name     VARCHAR(100) NOT NULL COMMENT '任务方法',
+    method_params   VARCHAR(255) COMMENT '方法参数',
+    cron_expression VARCHAR(100) NOT NULL COMMENT 'CRON表达式',
+    status          CHAR(1)      NOT NULL COMMENT '任务状态（0正常 1暂停）',
+    remark          VARCHAR(255) COMMENT '备注',
+    create_by       VARCHAR(50) COMMENT '创建者',
+    create_time     TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_by       VARCHAR(50) COMMENT '更新者',
+    update_time     TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+    comment 'job任务调度信息记录表';
+    -->
+</mapper>
