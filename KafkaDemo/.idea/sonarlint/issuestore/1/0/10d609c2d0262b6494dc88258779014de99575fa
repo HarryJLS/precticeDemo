@@ -1,0 +1,14 @@
+
+a
+java:S2095"KUse try-with-resources or close this "KafkaProducer" in a "finally" clause.(ûçÅ‡
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ò˜±∏
+U
+java:S6213 ":Rename this variable to not match a restricted identifier.(∫≈≥˘ˇˇˇˇ
+Q	java:S125#"<This block of commented-out lines of code should be removed.(çú€Ÿ
+?	java:S106+"+Replace this use of System.out by a logger.(Ω…÷W
+V	java:S125-"<This block of commented-out lines of code should be removed.(êäØ…¯ˇˇˇˇ
+V	java:S125>"<This block of commented-out lines of code should be removed.(ÁÍ€Õ˝ˇˇˇˇ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(ºËΩ“˛ˇˇˇˇ
+V
+java:S1128"@Remove this unused import 'java.util.concurrent.CountDownLatch'.(§ÉÙß

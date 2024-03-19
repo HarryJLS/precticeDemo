@@ -1,0 +1,9 @@
+
+f
+java:S2095"KUse try-with-resources or close this "KafkaProducer" in a "finally" clause.(ªÌçıÿÿÿÿ
+P
+java:S6213":Rename this variable to not match a restricted identifier.(¥®ğÂ
+Q	java:S125 "<This block of commented-out lines of code should be removed.(œÛÙ
+?	java:S106("+Replace this use of System.out by a logger.(½ÉÖW
+V	java:S125*"<This block of commented-out lines of code should be removed.(Š¯Éøÿÿÿÿ
+V	java:S125;"<This block of commented-out lines of code should be removed.(çêÛÍıÿÿÿÿ

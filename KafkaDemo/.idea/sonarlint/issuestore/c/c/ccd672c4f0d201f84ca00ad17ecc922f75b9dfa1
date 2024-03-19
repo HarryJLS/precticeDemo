@@ -1,0 +1,30 @@
+
+L
+java:S3740"/Provide the parametrized type for this generic.(‚Ê«8·°Ñ÷Ö1
+P
+java:S1141L"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+h	java:S116#"SRename this field "IF_SLEEP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕãÎ
+l	java:S116$"RRename this field "RUNNING" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À¸õÊüÿÿÿÿ
+`
+java:S1124 "EReorder the modifiers to comply with the Java Language Specification.(È£éúÿÿÿÿ
+h
+java:S3776I"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ŠìÖ
+G
+java:S1181l"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8¨²Ñ÷Ö1
+G
+java:S1181h"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8©²Ñ÷Ö1
+U
+java:S6213W":Rename this variable to not match a restricted identifier.(‚˜÷§ùÿÿÿÿ
+B
+java:S1602]",Remove useless curly braces around statement(ˆ°„³
+2
+java:S3457i"Not enough arguments.(©öµ‚8¶²Ñ÷Ö1
+7
+java:S3457m"Not enough arguments.(Ø—ŸÇşÿÿÿÿ8·²Ñ÷Ö1
+t
+java:S2142s"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
+7
+java:S3457t"Not enough arguments.(Šô°¢şÿÿÿÿ8¸²Ñ÷Ö1
+@	java:S106}"+Replace this use of System.out by a logger.(«ı‹¡
+F
+java:S1068("+Remove this unused "servers" private field.(Ø‹ë°ùÿÿÿÿ
