@@ -1,0 +1,15 @@
+
+s
+java:S1104"XMake DEFAULT_PORT a static final constant or non-public and provide accessors if needed.(äóž¸üÿÿÿÿ
+s
+java:S1104	"]Make DEFAULT_SERVER_IP a static final constant or non-public and provide accessors if needed.(ì…œá
+M
+java:S1444"2Make this "public static DEFAULT_PORT" field final(äóž¸üÿÿÿÿ
+M
+java:S1444	"7Make this "public static DEFAULT_SERVER_IP" field final(ì…œá
+r
+java:S3008"WRename this field "DEFAULT_PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äóž¸üÿÿÿÿ
+r
+java:S3008	"\Rename this field "DEFAULT_SERVER_IP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì…œá
+O
+java:S1118":Add a private constructor to hide the implicit public one.(ÈÏÝP

@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/tuling_spring_test/pom.xml" />
         <option value="$PROJECT_DIR$/Sharding/pom.xml" />
         <option value="$PROJECT_DIR$/RabbitMQDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/KafkaDemo/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
