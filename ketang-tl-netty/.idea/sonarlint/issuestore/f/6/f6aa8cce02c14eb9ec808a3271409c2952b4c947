@@ -1,8 +1,0 @@
-
-M
-java:S2589("7Remove this expression which always evaluates to "true"(±öåÈ
-E	java:S106"+Replace this use of System.out by a logger.(õð«Êûÿÿÿÿ
-E	java:S106 "+Replace this use of System.out by a logger.(¾¿—†ùÿÿÿÿ
-E	java:S106&"+Replace this use of System.out by a logger.(í€í›üÿÿÿÿ
-E
-java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ

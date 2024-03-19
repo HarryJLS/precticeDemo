@@ -1,6 +1,0 @@
-
-E	java:S106"+Replace this use of System.out by a logger.(˜›³«úÿÿÿÿ
-V	java:S125"<This block of commented-out lines of code should be removed.(å¯Èÿÿÿÿÿ
-@	java:S106"+Replace this use of System.out by a logger.(±÷õ½
-R
-java:S1128"<Remove this unused import 'io.netty.channel.ChannelHandler'.(­ûßì
