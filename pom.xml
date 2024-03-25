@@ -24,6 +24,7 @@
         <module>tulingcodestudy_3</module>
         <module>darkhouseDemo</module>
         <module>TaskSchedulerDemo</module>
+        <module>rocketDemo</module>
     </modules>
 
     <properties>
