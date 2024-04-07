@@ -12,11 +12,15 @@
         <option value="$PROJECT_DIR$/Sharding/pom.xml" />
         <option value="$PROJECT_DIR$/RabbitMQDemo/pom.xml" />
         <option value="$PROJECT_DIR$/KafkaDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-demo/netty-adv/pom.xml" />
+        <option value="$PROJECT_DIR$/rocketMQ-demo-4.9.5/pom.xml" />
+        <option value="$PROJECT_DIR$/rocketMQ-demo-4.9.5/rocketDemo/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
