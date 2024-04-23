@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/Sharding/pom.xml" />
         <option value="$PROJECT_DIR$/RabbitMQDemo/pom.xml" />
         <option value="$PROJECT_DIR$/KafkaDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/rocketMQ-demo-4.9.5/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
