@@ -116,6 +116,7 @@ public class DefaultPublisher extends Thread implements EventPublisher {
                     break;
                 }
                 final Event event = queue.take();
+                // 接收事件进行处理
                 receiveEvent(event);
 
             }
