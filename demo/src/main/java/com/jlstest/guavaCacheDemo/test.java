@@ -25,6 +25,8 @@ public class test {
 
         // 存储数据
         cache.put("key1", "value1");
+        // 释放key1
+        cache.invalidate("key1");
 
         // 获取数据
         String value1 = cache.getIfPresent("key1");

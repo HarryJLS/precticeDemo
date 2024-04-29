@@ -63,7 +63,14 @@
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.0.0-jre</version>
+        </dependency>
+
+
+        <!--        <dependency>-->
 <!--            <groupId>com.example</groupId>-->
 <!--            <artifactId>jls-common</artifactId>-->
 <!--            <version>2023062901-SNAPSHOT</version>-->
