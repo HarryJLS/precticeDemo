@@ -51,7 +51,7 @@ public class TestPublisher extends DefaultPublisher {
         if (!success) {
             log.warn("Unable to plug in due to interruption, synchronize sending time, event : {}", event);
             // 事件处理
-            handleEvent(event);
+//            handleEvent(event);
             return true;
         }
         return true;
