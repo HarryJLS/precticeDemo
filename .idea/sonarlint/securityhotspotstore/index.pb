@@ -664,3 +664,7 @@ Spolling-EventDrivenDemo/src/main/java/com/prectice/eventDrivenDemo/event/Event.
 Wpolling-EventDrivenDemo/src/main/java/com/prectice/eventDrivenDemo/util/NotifyUtil.java,a\f\aff559fc4d0737b12c2a0afc30db1514b7fc097b
 ç
 ]polling-EventDrivenDemo/src/main/java/com/prectice/eventDrivenDemo/publish/TestPublisher.java,8\2\825d10fc04fb0c4dd9d97af76a72b19d59220049
+}
+Malgorithm_prectice/src/main/java/com/prectice/other_prectice/LeakyBucket.java,7\d\7d680279bff9005cdca46e4af13d5db9b10a3482
+|
+Lalgorithm_prectice/src/main/java/com/prectice/other_prectice/moveBucket.java,6\e\6e4cc4ea061cc17f0387adb0c9bd7f08cbdc26a4
