@@ -47,8 +47,15 @@ public class impl {
 
 
 
+    /**
+     * 将一组 CompletableFuture 转换为一个 CompletableFuture，该 CompletableFuture 在所有的 CompletableFuture 完成时完成，
+     * 并返回一个包含所有 CompletableFuture 结果的列表。
+     *
+     * @param futures 一个 CompletableFuture 对象的列表
+     * @return 一个新的 CompletableFuture，当所有的 CompletableFuture 完成时完成，返回一个包含所有 CompletableFuture 结果的列表
+     */
     private <T> CompletableFuture<List<T>> sequence(List<CompletableFuture<T>> futures) {
-        CompletableFuture<Void> allDoneFuture = CompletableFuture.allOf(futures.toArray(new CompletableFuture[futures.size()]));
-        return allDoneFuture.thenApply(v -> futures.stream().map(future -> future.join()).collect(Collectors.toList()));
+        CompletableFuture<Void> allDoneFuture = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+        return allDoneFuture.thenApply(v -> futures.stream().map(CompletableFuture::join).collect(Collectors.toList()));
     }
 }
