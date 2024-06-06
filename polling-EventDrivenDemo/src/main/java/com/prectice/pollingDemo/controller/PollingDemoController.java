@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @author JLS
  * @description:
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PollingDemoController {
 
     private PollingDemoService pollingDemoService;
+
+    private AtomicInteger atomicInteger = new AtomicInteger(0);
 
     public PollingDemoController(PollingDemoService pollingDemoService) {
         this.pollingDemoService = pollingDemoService;
@@ -29,6 +33,17 @@ public class PollingDemoController {
     @GetMapping("/test")
     public String test() {
         pollingDemoService.reFresh();
+        return "success";
+    }
+
+    @GetMapping("/test11")
+    public String stop() throws InterruptedException {
+        int andIncrement = atomicInteger.getAndIncrement();
+        if (andIncrement % 3 == 0) {
+            return "fail";
+        }
+        Thread.sleep(1000);
+        System.out.println("stop");
         return "success";
     }
 }
