@@ -3,6 +3,8 @@ package com.prectice.other_prectice;
 /**
  * @author JLS
  * @description: 漏桶算法
+ *               漏桶是一种常见的流量整形算法，可以用于流量整形和流量控制，漏桶算法的基本思想是，系统以一个恒定的速度流出数据，
+ *               当流入的数据以一个速度过快时，会导致溢出，从而丢弃数据。
  * @since 2024-05-05 15:49
  */
 public class LeakyBucket {
@@ -30,6 +32,5 @@ public class LeakyBucket {
             return false;
         }
     }
-
 
 }

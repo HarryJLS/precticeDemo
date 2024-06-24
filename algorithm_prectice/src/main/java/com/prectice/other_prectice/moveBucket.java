@@ -22,12 +22,26 @@ public class moveBucket {
         new Thread(() -> {
             while (true) {
                 try {
-                    doCheck();
+                    if (doCheck()) {
+                        System.out.println("正常");
+                    } else {
+                        System.out.println("异常");
+                    }
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
         }).start();
+
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(50);
+                    addCounter();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+            }
+        }}).start();
     }
 
     // 用于模拟数据的添加
