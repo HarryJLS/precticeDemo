@@ -25,8 +25,11 @@ public class TokenBucket {
 
     private boolean limit() {
         Long now = System.currentTimeMillis();
-        TokenNum = Math.min(capacity, (now - tiemstamp) * rate);
-        tiemstamp = now;
+        Long temp = Math.min(capacity, (now - tiemstamp) * rate);
+        if (temp > 0) {
+            TokenNum = Math.min(capacity, TokenNum + temp);
+            tiemstamp = now;
+        }
         if (TokenNum > 0) {
             TokenNum--;
             return true;
