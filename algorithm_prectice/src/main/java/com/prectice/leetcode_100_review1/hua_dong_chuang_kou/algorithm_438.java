@@ -11,6 +11,9 @@ import java.util.List;
  */
 public class algorithm_438 {
 
+    /**
+     * 题解，核心的话，比较字符串是不是异位词，可以通过转数字比较数据的值是否相等来确定是不是异位词
+     */
     public List<Integer> findAnagrams(String s, String p) {
         if (p.length() > s.length()) {
             return new ArrayList<>();
