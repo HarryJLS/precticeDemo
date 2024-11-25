@@ -1,7 +1,6 @@
 package com.jlstest.completableFutureDemo.service.impl;
 
 
-
 import com.google.common.collect.Lists;
 import com.jlstest.completableFutureDemo.service.AsyncService;
 import org.slf4j.Logger;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -31,17 +31,30 @@ public class impl {
     public void demo() {
         List<String> list = new ArrayList<>();
         List<List<String>> orderGroup = Lists.partition(list, 6);
-        List<CompletableFuture<List<String>>> futureList = new ArrayList<>();
-        for (List<String> splitList : orderGroup) {
-            try {
-                CompletableFuture<List<String>> future = asyncService.test(splitList);
-                futureList.add(future);
-            } catch (Exception e) {
-                LOG.error("", e);
-            }
-        }
+//        List<CompletableFuture<List<String>>> futureList = new ArrayList<>();
+//        for (List<String> splitList : orderGroup) {
+//            try {
+//                CompletableFuture<List<String>> future = asyncService.test(splitList);
+//                futureList.add(future);
+//            } catch (Exception e) {
+//                LOG.error("", e);
+//            }
+//        }
 
-        CompletableFuture.allOf(sequence(futureList)).join();
+        List<CompletableFuture<List<String>>> futureList = orderGroup.stream()
+                .map(splitList -> asyncService.test(splitList)
+                        .exceptionally(ex -> {
+                            LOG.error("Error processing list: " + splitList, ex);
+                            return Collections.emptyList(); // Return an empty list on error
+                        }))
+                .collect(Collectors.toList());
+
+        // 等待线程执行结束，并结束的时候打印执行结果
+        sequence(futureList).thenAccept(results -> {
+            // Process combined results here
+            results.forEach(result -> System.out.println("Processed result: " + result));
+        }).join();
+//        CompletableFuture.allOf(sequence(futureList)).join();
     }
 
 
