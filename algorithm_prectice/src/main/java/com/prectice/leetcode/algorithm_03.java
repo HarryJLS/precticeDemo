@@ -34,6 +34,22 @@ public class algorithm_03 {
         return max;
     }
 
+    public int lengthOfLongestSubstring1(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        int result = 0;
+        int left = -1;
+        int right = -1;
+        for (int i = 0; i < s.length(); i++) {
+            if (map.get(s.charAt(i)) != null) {
+                result = Math.max(result, right - left);
+                left = Math.max(map.get(s.charAt(i)), left);
+            }
+            right = i;
+            map.put(s.charAt(i), i);
+        }
+        return Math.max(result, right - left);
+    }
+
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("bjdsjbfgj"));
     }
