@@ -4,6 +4,7 @@ import javax.swing.plaf.TableHeaderUI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -21,6 +22,7 @@ public class HorseRacingDemo {
     public static final CountDownLatch endLatch = new CountDownLatch(HORSE_NUM);
 
     public static void main(String[] args) throws InterruptedException {
+        ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(16);
         Long now = System.currentTimeMillis();
         List<Horse> horses = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
