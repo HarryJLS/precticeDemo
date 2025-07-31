@@ -38,6 +38,47 @@ public class algorithm_148 {
     }
 
     public ListNode sortList1(ListNode head) {
-        
+        return mergeSort(head);
+    }
+
+    private ListNode mergeSort(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode slow = head;
+        ListNode quick = head;
+        ListNode prev = slow;
+        while (quick != null && quick.next != null) {
+            prev = slow;
+            slow = slow.next;
+            quick = quick.next.next;
+        }
+        prev.next = null;
+        ListNode headNode = mergeSort(head);
+        ListNode slowNode = mergeSort(slow);
+
+        return merge(headNode, slowNode);
+    }
+    private ListNode merge(ListNode head, ListNode slow) {
+        ListNode result = new ListNode(1);
+        ListNode temp = result;
+
+        while (head != null && slow != null) {
+            if (head.val <= slow.val) {
+                temp.next = head;
+                head = head.next;
+            } else {
+                temp.next = slow;
+                slow = slow.next;
+            }
+            temp = temp.next;
+        }
+        if (head != null) {
+            temp.next = head;
+        }
+        if (slow != null) {
+            temp.next = slow;
+        }
+        return result.next;
     }
 }
