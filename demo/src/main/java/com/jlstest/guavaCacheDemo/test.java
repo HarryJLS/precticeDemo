@@ -1,5 +1,9 @@
 package com.jlstest.guavaCacheDemo;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 
 import com.google.common.cache.Cache;
@@ -72,6 +76,14 @@ public class test {
         System.out.println("Expired value for key2: " + cache.getIfPresent("key2"));
         System.out.println("Expired value for key1: " + cache.getIfPresent("key1"));
 
+        CopyOnWriteArrayList list = new CopyOnWriteArrayList<>();
+        list.add("1");
+        list.get(0);
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.set(0, 2);
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+        map.put("1", "1");
 
     }
 

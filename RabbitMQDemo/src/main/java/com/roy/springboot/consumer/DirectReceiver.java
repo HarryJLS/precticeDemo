@@ -84,39 +84,35 @@ public class DirectReceiver {
 		System.out.println("quorumReceiver received message : "+ message);
 	}
 
+    // @RabbitListener(queues = MyConstants.QUEUE_STREAM)
+    public void stremReceiver(Channel channel, String message) {
+        try {
+            channel.basicQos(100);
+            Consumer myconsumer = new DefaultConsumer(channel) {
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    System.out.println("========================");
+                    String routingKey = envelope.getRoutingKey();
+                    System.out.println("routingKey >" + routingKey);
+                    String contentType = properties.getContentType();
+                    System.out.println("contentType >" + contentType);
+                    long deliveryTag = envelope.getDeliveryTag();
+                    System.out.println("deliveryTag >" + deliveryTag);
+                    System.out.println("content:" + new String(body, "UTF-8"));
+                    // (process the message components here ...)
+                    // 消息处理完后，进行答复。答复过的消息，服务器就不会再次转发。
+                    // 没有答复过的消息，服务器会一直不停转发。
+                    channel.basicAck(deliveryTag, false);
+                }
+            };
 
-//	@RabbitListener(queues = MyConstants.QUEUE_STREAM)
-	public void stremReceiver(Channel channel,String message){
-		try {
-			channel.basicQos(100);
-			Consumer myconsumer = new DefaultConsumer(channel) {
-				@Override
-				public void handleDelivery(String consumerTag, Envelope envelope,
-										   AMQP.BasicProperties properties, byte[] body)
-						throws IOException {
-					System.out.println("========================");
-					String routingKey = envelope.getRoutingKey();
-					System.out.println("routingKey >"+routingKey);
-					String contentType = properties.getContentType();
-					System.out.println("contentType >"+contentType);
-					long deliveryTag = envelope.getDeliveryTag();
-					System.out.println("deliveryTag >"+deliveryTag);
-					System.out.println("content:"+new String(body,"UTF-8"));
-					// (process the message components here ...)
-					//消息处理完后，进行答复。答复过的消息，服务器就不会再次转发。
-					//没有答复过的消息，服务器会一直不停转发。
-					channel.basicAck(deliveryTag, false);
-				}
-			};
+            Map<String, Object> consumeParam = new HashMap<>();
+            consumeParam.put("x-stream-offset", "last");
+            channel.basicConsume(MyConstants.QUEUE_STREAM, false, consumeParam, myconsumer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("quorumReceiver received message : " + message);
+    }
 
-			Map<String,Object> consumeParam = new HashMap<>();
-			consumeParam.put("x-stream-offset","last");
-			channel.basicConsume(MyConstants.QUEUE_STREAM, false,consumeParam, myconsumer);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.println("quorumReceiver received message : "+ message);
-	}
-	
-	
 }
