@@ -1,7 +1,6 @@
 package com.prectice.leetcode_100_review2.二叉树2;
 
 import com.prectice.leetcode.TreeNode;
-import jdk.javadoc.internal.doclets.toolkit.taglets.snippet.Style;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -26,8 +25,7 @@ public class algorithm_101 {
             TreeNode rightPoll = rightQueue.poll();
             if (!compareNode(leftPoll, rightPoll) || !compareNode(leftPoll.left, rightPoll.right) || !compareNode(leftPoll.right, rightPoll.left)) {
                 return false;
-            }
-            else {
+            } else {
                 if (leftPoll.left != null) {
                     leftQueue.offer(leftPoll.left);
                     rightQueue.offer(rightPoll.right);
@@ -46,7 +44,7 @@ public class algorithm_101 {
     }
 
 
-    private boolean compareNode (TreeNode left, TreeNode right) {
+    private boolean compareNode(TreeNode left, TreeNode right) {
         if (left == null && right == null) {
             return true;
         } else if (left != null && right != null) {
