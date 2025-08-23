@@ -1,4 +1,4 @@
-package com.prectice.leetcode_100_review2;
+package com.prectice.leetcode_100_review2.链表2;
 
 import com.prectice.leetcode.TreeNode;
 

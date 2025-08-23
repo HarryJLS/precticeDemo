@@ -1,7 +1,4 @@
-package com.prectice.leetcode_100_review2;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.prectice.leetcode_100_review2.动态规划2;
 
 /**
  * @author Jiangls

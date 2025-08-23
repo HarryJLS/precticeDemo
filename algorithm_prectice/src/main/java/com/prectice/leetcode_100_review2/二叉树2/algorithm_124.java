@@ -1,7 +1,6 @@
-package com.prectice.leetcode_100_review2;
+package com.prectice.leetcode_100_review2.二叉树2;
 
 import com.prectice.leetcode.TreeNode;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 
 /**
  * @author Jiangls
