@@ -2,7 +2,7 @@ package com.prectice.leetcode20250826.动态规划extra;
 
 /**
  * @author JLS
- * @description:
+ * @description:  统计各位数字都不同的数字个数
  * @since 2025-09-01 17:42
  */
 public class algorithm_357 {
